@@ -18,8 +18,18 @@ jobs:
         path: spamfreesearch.zip
     - name: Upload to Mozilla Add-ons
       run: |
-        gh_version="1.0.$GITHUB_RUN_ID"
-        jwt=""
+        gh_version="1.0.$GITHUB_RUN_NUMBER"
+        
+        iss="user:14687109:342"
+        jti=$(date +%s%N)
+        iat=$(date +%s)
+        exp=$(expr $iat + 60)
+
+        jwt_header=$(echo -n '{"alg":"HS256","typ":"JWT"}' | base64)
+        jwt_body=$(echo -n "{\"iss\":\"$iss\",\"jti\":\"$jti\",\"iat\":\"$iat\",\"exp\":\"$exp\"}" | openssl base64 -e -A)
+        jwt_sig=$(echo -n "$jwt_header.$jwt_body" | openssl dgst -sha256 -hmac ${{ secrets.MOZILLA_ADDON_JWT }} -binary | openssl base64 -e -A | sed s/\+/-/ | sed -E s/=+$//)
+        jwt="$jwt_header.$jwt_body.$jwt_sig"
+
         echo "Uploading version ${gh_version}"
         curl "https://addons.mozilla.org/api/v5/addons/spam-free-search/versions/${gh_version}/" \
          -g -XPUT --form "upload=spamfreesearch.zip" \
