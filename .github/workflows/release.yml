@@ -19,7 +19,7 @@ jobs:
     - name: Upload to Mozilla Add-ons
       run: |
         gh_version="1.0.$GITHUB_RUN_NUMBER"
-        
+
         iss="user:14687109:342"
         jti=$(date +%s%N)
         iat=$(date +%s)
@@ -32,5 +32,5 @@ jobs:
 
         echo "Uploading version ${gh_version}"
         curl "https://addons.mozilla.org/api/v5/addons/spam-free-search/versions/${gh_version}/" \
-         -g -XPUT --form "upload=spamfreesearch.zip" \
+         -g -XPUT --form "upload=@spamfreesearch.zip" \
          -H "Authorization: JWT ${jwt}"
