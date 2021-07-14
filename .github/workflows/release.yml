@@ -20,7 +20,7 @@ jobs:
       run: |
         gh_version="1.0.$GITHUB_RUN_ID"
         jwt=""
-        echo "Uploading version ${version}"
-        curl "https://addons.mozilla.org/api/v5/addons/spam-free-search/versions/${gh_version}/"
-        -g -XPUT --form "upload=spamfreesearch.zip"
-        -H "Authorization: JWT ${jwt}"
+        echo "Uploading version ${gh_version}"
+        curl "https://addons.mozilla.org/api/v5/addons/spam-free-search/versions/${gh_version}/" \
+         -g -XPUT --form "upload=spamfreesearch.zip" \
+         -H "Authorization: JWT ${jwt}"
