@@ -6,6 +6,7 @@
   "version": "{version}",
   "browser_specific_settings": {
     "gecko": {
+      "id": "{b661c7b7-9e80-4d72-8b0a-fd4527305d6b}",
       "strict_min_version": "65.0"
     }
   },
