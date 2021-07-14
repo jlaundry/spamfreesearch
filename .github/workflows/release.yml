@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Make extension
       run: |
-        ./make-firefox.sh
+        version="1.0.$GITHUB_RUN_NUMBER" ./make-firefox.sh
     - name: Archive artifacts
       uses: actions/upload-artifact@v2
       with:

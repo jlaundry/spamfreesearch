@@ -9,5 +9,5 @@ do
     exclusions="${exclusions}+-site:${site}"
 done
 
-sed "s/{exclusions}/${exclusions}/" manifest.json.tpl > manifest.json
+sed "s/{exclusions}/${exclusions}/" manifest.json.tpl | sed "s/{version}/${version}/" > manifest.json
 zip spamfreesearch.zip manifest.json

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Spam-free search",
   "description": "Search without spammy \"archive\" links",
-  "version": "1.0",
+  "version": "{version}",
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "65.0"
