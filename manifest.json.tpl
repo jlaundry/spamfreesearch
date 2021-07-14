@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "Spam-free search",
   "description": "Search without spammy \"archive\" links",
+  "homepage_url": "https://github.com/jlaundry/spamfreesearch",
   "version": "{version}",
   "browser_specific_settings": {
     "gecko": {
