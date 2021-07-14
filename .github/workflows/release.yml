@@ -18,7 +18,7 @@ jobs:
         path: spamfreesearch.zip
     - name: Upload to Mozilla Add-ons
       run: |
-        gh_version="1.0.${{ GITHUB_RUN_ID }}"
+        gh_version="1.0.$GITHUB_RUN_ID"
         jwt=""
         echo "Uploading version ${version}"
         curl "https://addons.mozilla.org/api/v5/addons/spam-free-search/versions/${gh_version}/"
