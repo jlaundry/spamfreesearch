@@ -20,7 +20,7 @@ jobs:
       run: |
         gh_version="1.0.$GITHUB_RUN_NUMBER"
 
-        iss="user:14687109:342"
+        iss="user:14687109:727"
         jti=$(date +%s%N)
         iat=$(date +%s)
         exp=$(expr $iat + 60)
