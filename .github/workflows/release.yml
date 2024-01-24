@@ -7,12 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Make extension
       run: |
         version="1.0.$GITHUB_RUN_NUMBER" ./make-firefox.sh
     - name: Archive artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: spamfreesearch.zip
         path: spamfreesearch.zip
